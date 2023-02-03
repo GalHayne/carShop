@@ -1,0 +1,12 @@
+.car-preview{
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 662px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.457);
+}
+
+.car-preview .img-container {
+    max-width: 250px;
+    max-height: 250px;
+}
