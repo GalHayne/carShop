@@ -1,0 +1,9 @@
+.car-filter{
+    display: flex;
+    justify-content: space-around;
+    margin: 15px;
+    background-color: aliceblue;
+    padding: 15px;
+    border-radius: 15px;
+    flex-wrap: wrap;
+}

@@ -13,4 +13,5 @@
 
 /* Cmps */
 @import './cmps/car-list.css';
-@import './cmps/car-preview.css'
+@import './cmps/car-preview.css';
+@import './cmps/car-filter.css';
