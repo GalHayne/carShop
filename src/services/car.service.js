@@ -34,7 +34,6 @@ function query(filterBy) {
                 return car;
         })
 
-        console.log(carsAfterFilter);
         return Promise.resolve(carsAfterFilter);
 
     }

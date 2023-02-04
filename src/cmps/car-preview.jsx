@@ -1,5 +1,5 @@
-export function CarPreview({ car }) {
-    return <section className="car-preview">
+export function CarPreview({ car, onSelectCar }) {
+    return <section className="car-preview" onClick={() => onSelectCar(car)}>
         <h3>Vendor: {car.vendor}</h3>
         <h3>Speed: {car.speed}</h3>
         <div className="img-container">

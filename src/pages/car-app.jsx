@@ -3,6 +3,7 @@ import React from "react"
 import { carService } from '../services/car.service'
 import { CarList } from "../cmps/car-list"
 import { CarFilter } from "../cmps/car-filter"
+import { CarDetails } from "../cmps/car-details"
 
 export class CarApp extends React.Component {
     state = {
@@ -13,13 +14,11 @@ export class CarApp extends React.Component {
 
     componentDidMount() {
         this.loadCars();
-
     }
 
     loadCars = () => {
         carService.query(this.state.filterBy)
             .then(cars => {
-                console.log(cars);
                 this.setState({ cars })
             })
     }
@@ -28,14 +27,26 @@ export class CarApp extends React.Component {
         this.setState({ filterBy }, () => {
             this.loadCars()
         })
+    }
+
+    onSelectCar = (car) => {
+        this.setState({ selectedCar: car })
 
     }
 
     render() {
-        const { cars } = this.state;
+        const { cars, selectedCar } = this.state;
         return <section className="car-app">
-            <CarFilter onSetFilter={this.onSetFilter} />
-            <CarList cars={cars} />
+            {!selectedCar && <React.Fragment>
+
+                <CarFilter onSetFilter={this.onSetFilter} />
+                <CarList cars={cars} onSelectCar={this.onSelectCar} />
+            </React.Fragment>
+            }
+
+            {selectedCar && <CarDetails car={selectedCar} onRemoveCar={selectedCar.id} onGoBack={() => { this.onSelectCar(null) }} />}
+
         </section>
+
     }
 }
