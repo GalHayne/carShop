@@ -14,7 +14,7 @@ let gVendors = ["audi", 'fiat', 'suzuki', 'honda', 'mazda'];
 
 function query(filterBy) {
     let cars = _loadFromStorage();
-    if (!cars) {
+    if (cars.length === 0 || !cars) {
         cars = _createCars();
         _saveToStorage(cars);
     }
