@@ -34,6 +34,14 @@ export class CarApp extends React.Component {
 
     }
 
+    onRemoveCar = (carId) => {
+        carService.remove(carId)
+            .then(() => {
+                this.loadCars();
+                this.onSelectCar(null);
+            });
+    }
+
     render() {
         const { cars, selectedCar } = this.state;
         return <section className="car-app">
@@ -44,7 +52,7 @@ export class CarApp extends React.Component {
             </React.Fragment>
             }
 
-            {selectedCar && <CarDetails car={selectedCar} onRemoveCar={selectedCar.id} onGoBack={() => { this.onSelectCar(null) }} />}
+            {selectedCar && <CarDetails car={selectedCar} onRemoveCar={this.onRemoveCar} onGoBack={() => { this.onSelectCar(null) }} />}
 
         </section>
 
