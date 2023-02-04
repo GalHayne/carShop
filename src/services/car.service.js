@@ -12,11 +12,31 @@ export const carService = {
 const KEY = 'carsDB';
 let gVendors = ["audi", 'fiat', 'suzuki', 'honda', 'mazda'];
 
-function query() {
+function query(filterBy) {
     let cars = _loadFromStorage();
     if (!cars) {
         cars = _createCars();
         _saveToStorage(cars);
+    }
+
+
+    if (filterBy) {
+        let { vendor, minSpeed, maxSpeed } = filterBy;
+        if (!minSpeed) {
+            minSpeed = 0;
+        }
+        if (!maxSpeed) {
+            maxSpeed = Infinity;
+        }
+
+        const carsAfterFilter = cars.filter(car => {
+            if ((car.speed >= minSpeed) && (car.speed <= maxSpeed) && (car.vendor.includes(vendor.toLowerCase())))
+                return car;
+        })
+
+        console.log(carsAfterFilter);
+        return Promise.resolve(carsAfterFilter);
+
     }
 
     return Promise.resolve(cars);

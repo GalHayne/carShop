@@ -11,26 +11,15 @@ export class CarFilter extends React.Component {
         }
     }
 
-    handleVendorChange = ({ target }) => {
-        const { value } = target;
-        this.setState({ filterBy: { ...this.state.filterBy, vendor: value } })
+    handleChange = ({ target }) => {
+        const value = target.type === 'number' ? + target.value : target.value;
+        const { name } = target;
+        this.setState((prevState) => ({ filterBy: { ...prevState.filterBy, [name]: value } }))
     }
 
-    handleMinSpeedChange = ({ target }) => {
-        const { value } = target;
-        this.setState({ filterBy: { ...this.state.filterBy, minSpeed: value } })
+    filterCars = () => {
+        this.props.onSetFilter(this.state.filterBy)
     }
-
-    handleMaxSpeedChange = ({ target }) => {
-        const { value } = target;
-        this.setState({ filterBy: { ...this.state.filterBy, maxSpeed: value } })
-    }
-
-    componentDidUpdate() {
-
-    }
-
-
 
     render() {
         const { vendor, minSpeed, maxSpeed } = this.state.filterBy;
@@ -38,18 +27,20 @@ export class CarFilter extends React.Component {
             Filter By
             <form>
                 <label htmlFor="by-vendor">Vender:</label>
-                <input id="by-vendor" type="text" value={vendor} onChange={this.handleVendorChange} />
+                <input id="by-vendor" type="text" value={vendor} onChange={this.handleChange} name="vendor" />
             </form>
 
             <form>
                 <label htmlFor="by-min-speed">Minimum Speed:</label>
-                <input id="by-min-speed" type="number" value={minSpeed} onChange={this.handleMinSpeedChange} />
+                <input id="by-min-speed" type="number" value={minSpeed} onChange={this.handleChange} name="minSpeed" />
             </form>
 
             <form>
                 <label htmlFor="by-max-speed">Maximum Speed:</label>
-                <input id="by-max-speed" type="number" value={maxSpeed} onChange={this.handleMaxSpeedChange} />
+                <input id="by-max-speed" type="number" value={maxSpeed} onChange={this.handleChange} name="maxSpeed" />
             </form>
+
+            <button onClick={this.filterCars} >Filter!</button>
         </section>
     }
 
