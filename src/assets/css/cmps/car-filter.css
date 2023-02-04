@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     margin: 15px;
-    background-color: aliceblue;
+    background-color: rgb(134, 184, 227);
     padding: 15px;
     border-radius: 15px;
     flex-wrap: wrap;
