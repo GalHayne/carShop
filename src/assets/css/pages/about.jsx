@@ -1,5 +1,8 @@
+import { NavLink, Link, Route, Routes } from "react-router-dom"
+
+
 export function About() {
-    return <section className="about" >
+    return (<section className="about" >
         <h2>We are all about cars</h2>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis alias deleniti accusamus tenetur? Consectetur delectus praesentium neque amet assumenda et. Nemo praesentium, accusantium architecto voluptatibus vel nisi debitis eligendi deleniti.</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt molestiae eius, explicabo ab similique sapiente corrupti! Reprehenderit, quis, at optio eaque, voluptatum quaerat officia illum fuga amet explicabo beatae non?
@@ -102,6 +105,5 @@ export function About() {
             Eaque adipisci vitae animi vero voluptatibus tempora quidem aliquam quam id. Omnis, sint est illo, labore repellat iste fugit a perspiciatis quidem excepturi, aut exercitationem accusamus esse voluptatibus odio consectetur.
             Sint, laudantium labore maiores tenetur doloribus quasi quidem sunt, quia voluptatem ipsum ratione pariatur praesentium nobis ut. Eius, placeat eum et adipisci aut debitis. Ipsa dolore sequi molestiae aliquam eum?
             Architecto quae facere id, porro enim minus ratione saepe ut explicabo rerum quaerat necessitatibus quos neque repellendus distinctio adipisci, praesentium quis quam ea. Ipsa veniam velit molestias laborum expedita. Minus?</p>
-    </section>
-
+    </section>)
 }
