@@ -11,6 +11,13 @@ export class CarFilter extends React.Component {
         }
     }
 
+    inputRef = React.createRef();
+
+    componentDidMount() {
+        console.log('inputRef:', this.inputRef);
+        this.inputRef.current.focus();
+    }
+
     handleChange = ({ target }) => {
         const value = target.type === 'number' ? + target.value : target.value;
         const { name } = target;
@@ -32,7 +39,7 @@ export class CarFilter extends React.Component {
 
             <form>
                 <label htmlFor="by-min-speed">Minimum Speed:</label>
-                <input id="by-min-speed" type="number" value={minSpeed} onChange={this.handleChange} name="minSpeed" />
+                <input id="by-min-speed" type="number" value={minSpeed} onChange={this.handleChange} name="minSpeed" ref={this.inputRef} />
             </form>
 
             <form>

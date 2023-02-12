@@ -1,0 +1,17 @@
+.car-header{
+    background-color: lightcyan;
+    display: flex;
+    justify-content: space-between;
+    padding: 1%;
+    align-items: center;
+}
+
+.car-header nav > *:not(:last-child){
+    margin-inline-end: 25px;
+}
+
+
+.car-header nav > *:hover:not(:active){
+    color: silver;
+    cursor: pointer;
+}
