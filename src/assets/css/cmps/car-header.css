@@ -15,3 +15,11 @@
     color: silver;
     cursor: pointer;
 }
+
+.active{
+    color: lightgreen;
+}
+
+.otherActive{
+    color: lightcoral;
+}
